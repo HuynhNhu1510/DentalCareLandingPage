@@ -42,61 +42,318 @@ a {
 
 .container {
     width: 1170px;
-    max-width: 100%;
+    max-width: calc(100% - 44px);
     margin-left: auto;
     margin-right: auto;
 }
 
+.btn {
+    min-width: 205px;
+    line-height: 60px;
+    color: var(--white);
+    background: var(--primary-btn-clr);
+    font-size: 1.8rem;
+    font-weight: var(--fw-regular);
+    text-align: center;
+    border-radius: 999px;
+}
 
+.btn:hover {
+    opacity: 0.9;
+}
+
+.section__heading {
+    color: var(--primary-clr);
+    font-size: 5rem;
+    font-weight: var(--fw-semi-bold);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.section__desc {
+    margin-top: 18px;
+    color: var(--text-clr);
+    font-size: 1.8rem;
+    font-weight: var(--fw-light);
+    line-height: 1.67;
+}
 
 /*=== HEADER ===*/
-.main-header {
+.header {
+    min-height: 100vh;
     background: var(--primary-clr);
-    padding-top: 16px;
 }
 
-.main-header__content {
+.header-top {
     display: flex;
     align-items: center;
+    background: var(--primary-clr);
+    padding-top: 30px;
 }
 
-figure {
+.logo {
     display: flex;
-    align-items: center;
+    font-size: 1rem;
+    position: relative;
 }
 
-.main-header__logo-text {
-    width: 50px;
-    margin-left: 6px;
-    margin-right: 283px;
+.logo__circle::before,
+.logo__circle::after {
+    content: '';
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.logo__circle::before {
+    width: 3em;
+    height: 3em;
+    background: var(--primary-btn-clr);
+}
+
+.logo__circle::after {
+    width: 1.6em;
+    height: 1.6em;
+    background: var(--white);
+    position: absolute;
+    top: 1.1em;
+    left: 1.1em;
+}
+
+.logo__text {
+    margin-left: 0.6em;
     color: var(--white);
     text-align: right;
-    font-size: 1.8rem;
+    line-height: 1.6em;
+}
+
+.logo__brand {
+    display: block;
+    font-size: 1.8em;
     font-weight: var(--fw-regular);
 }
 
-.main-header__logo-text span {
-    color: var(--white);
-    font-size: 1.2rem;
+.logo__brand:last-child {
+    font-size: 1.2em;
     font-weight: var(--fw-light);
-    line-height: 1.16;
 }
 
-.main-header__nav-list {
+.nav-bar__list {
     display: flex;
+    margin-left: 283px;
 }
 
-.main-header__nav-item a {
+.nav-bar__item .nav-bar__link {
     padding: 8px 21px;
     color: var(--text-header-clr);
     font-size: 1.6rem;
     font-weight: var(--fw-light);
+    text-align: center;
 }
 
-.main-header__nav-item a::before {
-    display: inline-block;
-    content: '';
+.nav-bar__item .nav-bar__link::before {
+    content: attr(title);
+    display: block;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
     text-align: center;
+}
+
+.nav-bar__item .nav-bar__link:hover {
     color: var(--white);
     font-weight: var(--fw-regular);
+}
+
+.header-action {
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+}
+
+.header-action__login {
+    padding: 5px 20px;
+    margin-right: 8px;
+    color: var(--text-header-clr);
+    font-size: 1.6rem;
+    font-weight: var(--fw-light);
+    text-align: center;
+}
+
+.header-action__login:hover {
+    color: var(--white);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.header-action__register {
+    min-width: 104px;
+    line-height: 44px;
+    font-size: 1.6rem;
+}
+
+.header-action__register:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/*  
+ * === HERO BANNER ===  
+*/
+.hero-banner {
+    margin-top: 76px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-banner__content {
+    flex-shrink: 0;
+    width: 44%;
+}
+
+.hero__heading {
+    color: var(--white);
+    font-size: 7rem;
+    font-weight: var(--fw-semi-bold);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.hero__desc {
+    margin-top: 22px;
+    color: var(--text-header-clr);
+    font-size: 1.8rem;
+    font-weight: var(--fw-light);
+    line-height: 1.67;
+}
+
+.hero__row {
+    display: flex;
+    align-items: center;
+    margin-top: 38px;
+}
+
+.hero__contact {
+    margin-left: 38px;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.67;
+}
+
+.hero__media {
+    flex-grow: 1;
+}
+
+.hero__images {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 110px;
+}
+
+.hero__img {
+    width: 330px;
+    height: 540px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.hero__img:first-child {
+    position: relative;
+    margin-right: -6px;
+}
+
+.hero__img:last-child {
+    width: 210px;
+    height: 410px;
+    align-self: center;
+}
+
+/*
+*   === SERVICES ===
+*/
+.service {
+    padding: 170px 0;
+}
+
+.service .section__heading,
+.service .section__desc {
+    text-align: center;
+}
+
+.service .section__desc {
+    max-width: 468px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.service__img {
+    width: 570px;
+    height: 570px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.service__list {
+    margin-bottom: 55px;
+}
+
+.service-item {
+    display: flex;
+    padding: 20px 22px;
+    width: 470px;
+    border-radius: 10px;
+    background: var(--white);
+    transition: .25s ease-in-out;
+}
+
+.service-item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: var(--primary-clr);
+    background: #EFF6FD;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: .25s ease-in-out;
+}
+
+.service-item__content {
+    margin-left: 19px;
+}
+
+.service-item__heading {
+    margin-bottom: 8px;
+    color: var(--primary-clr);
+    font-size: 1.8rem;
+    font-weight: var(--fw-semi-bold);
+}
+
+.service-item__desc {
+    max-width: 308px;
+    color: var(--text-clr);
+    font-size: 1.6rem;
+    font-weight: var(--fw-light);
+    line-height: 1.75;
+}
+
+.service-item:hover {
+    position: relative;
+    box-shadow: 0px 14px 28px 0px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.service-item:hover .service-item__icon {
+    background: #2E80CE;
+    color: var(--white);
 }
